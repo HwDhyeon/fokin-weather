@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert } from 'react-native';
+import { Alert, BackHandler } from 'react-native';
 import * as Location from 'expo-location';
 import axios from 'axios';
 import Toast from 'react-native-simple-toast';
@@ -39,6 +39,28 @@ export default class extends React.Component {
       Alert.alert("Can't find you.", 'So sad');
     }
   };
+  backPress = () => {
+    Alert.alert(
+      'Exit App',
+      'Do you want to exit?',
+      [
+        {
+          text: 'No',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        { text: 'Yes', onPress: () => BackHandler.exitApp() },
+      ],
+      { cancelable: false },
+    );
+    return true;
+  };
+  componentWillMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.backPress);
+  }
+  componentWillUnmount() {
+    BackHandler.addEventListener('hardwareBackPress', this.backPress);
+  }
   componentDidMount() {
     this.getLocation();
   }

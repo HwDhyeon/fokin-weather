@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "fokin-weather",
+    "icon": "./assets/icon.png",
     "slug": "fokin-weather",
     "platforms": [
       "ios",
@@ -9,7 +10,6 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -22,7 +22,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hwdhyeon.fokinweather",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+        "package": "com.hwdhyeon.fokinweather",
+        "versionCode": 1
     }
   }
 }
